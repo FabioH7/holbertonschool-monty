@@ -25,6 +25,13 @@ int main(int argc, char *argv[])
 	while (fgets(buffer, 200, fd))
 	{
 		j = 0;
+		if (strcmp(buffer, "\n") == 0)
+		{
+			printf("test");
+			y++;
+			continue;
+		}
+		buffer = strtok(buffer, "\n");
 		token = strtok(buffer, " ");
 		if (token == NULL)
 			continue;
@@ -35,18 +42,20 @@ int main(int argc, char *argv[])
 			j++;
 		}
 		token_array[j] = NULL;
-		if (strcmp(token_array[0], "\n") == 0)
-		{
-			y++;
-			continue;
-		}
 		for (i = 0; arr[i].opcode != NULL; i++)
 		{
-			if (strncmp(arr[i].opcode, token_array[0], strlen(token_array[0])) == 0)
+			if (strncmp(arr[i].opcode, token_array[0], (strlen(token_array[0]))) == 0)
 			{
-				if (strncmp(token_array[0], "push", strlen("push")) == 0)
+				if (strncmp("push", token_array[0], strlen(token_array[0])) == 0)
 				{
+					if (token_array[1] == NULL)
+					{
+						fprintf(stderr, "L%i: usage: push integer\n", y);
+                				exit(EXIT_FAILURE);
+					}
 					node = push(&node, y, token_array[1]);
+					if (node == NULL)
+						return (1);
 				}
 				else
 					arr[i].f(&node, y);
