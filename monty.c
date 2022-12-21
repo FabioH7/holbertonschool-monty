@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 	int i = 0,y = 1, j = 0;
 	char *token;
 	char *token_array[1024];
-	instruction_t arr[] = {{"pall", pall},{"push", NULL}, {NULL, NULL}};
+	instruction_t arr[] = {{"pall", pall},{"push", NULL},{"pint", pint},{"pop", pop}, {NULL, NULL}};
 	stack_t *node = NULL, *tmp;
 
 	if (argc != 2)
@@ -45,12 +45,6 @@ int main(int argc, char *argv[])
 					arr[i].f(&node, y);
 				break;
 			}
-			else
-			{
-				if (arr[i + 1].opcode == NULL)
-					printf("Command not found\n");
-				continue;
-			}
 		}
 		y++;
 	}
@@ -63,6 +57,5 @@ int main(int argc, char *argv[])
 	node = NULL;
 	free(buffer);
 	fclose(fd);
-	//printf("Success!!!\n");
 	return (0);
 }

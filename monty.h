@@ -34,4 +34,6 @@ typedef struct instruction_s
 stack_t *push(stack_t **stack, unsigned int line_number, char *n);
 void pall(stack_t **stack, unsigned int __attribute__((unused)) line_number);
 void _free(stack_t *head);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 #endif
