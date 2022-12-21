@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 	int i = 0,y = 1, j = 0;
 	char *token;
 	char *token_array[1024];
-	instruction_t arr[] = {{"pall", pall},{"push", NULL},{"pint", pint},{"pop", pop}, {NULL, NULL}};
+	instruction_t arr[] = {{"pall", pall},{"add", add},{"push", NULL},{"pint", pint},{"pop", pop}, {NULL, NULL}};
 	stack_t *node = NULL, *tmp;
 
 	if (argc != 2)

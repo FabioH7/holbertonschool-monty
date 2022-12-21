@@ -56,3 +56,10 @@ void pop (stack_t **stack, unsigned int line_number)
 	free(tmp);
 	return;
 }
+void add (stack_t **stack, unsigned int line_number)
+{
+	int sum = 0;
+	sum = (*stack)->n + (*stack)->next->n;
+	(*stack)->next->n = sum;
+	pop(stack, line_number);
+}
