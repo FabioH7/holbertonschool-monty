@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
 		j = 0;
 		if (strcmp(buffer, "\n") == 0)
 		{
-			printf("test");
 			y++;
 			continue;
 		}
