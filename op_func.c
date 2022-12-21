@@ -26,7 +26,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L<%i>: can't pint, stack is empty\n", line_number);
+		fprintf(stderr, "L%i: can't pint, stack is empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
@@ -41,7 +41,7 @@ void pop (stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr,"L<%i>: can't pop an empty stack\n", line_number);
+		fprintf(stderr,"L%i: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
