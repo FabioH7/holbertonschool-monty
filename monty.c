@@ -33,7 +33,10 @@ int main(int argc, char *argv[])
 		buffer = strtok(buffer, "\n");
 		token = strtok(buffer, " ");
 		if (token == NULL)
+		{
+			y++;
 			continue;
+		}
 		while (token != NULL)
 		{
 			token_array[j] = token;
