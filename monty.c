@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 	int i = 0,y = 1, j = 0;
 	char *token;
 	char *token_array[1024];
-	instruction_t arr[] = {{"pall", pall},{"add", add},{"push", NULL},{"pint", pint},{"pop", pop}, {NULL, NULL}};
+	instruction_t arr[] = {{"pall", pall},{"add", add},{"push", NULL},{"swap", swap}, {"pint", pint},{"pop", pop}, {NULL, NULL}};
 	stack_t *node = NULL, *tmp;
 
 	if (argc != 2)
@@ -35,16 +35,28 @@ int main(int argc, char *argv[])
 			j++;
 		}
 		token_array[j] = NULL;
+		if (strcmp(token_array[0], "\n") == 0)
+		{
+			y++;
+			continue;
+		}
 		for (i = 0; arr[i].opcode != NULL; i++)
 		{
-			if (strncmp(token_array[0], arr[i].opcode, strlen(arr[i].opcode)) == 0)
+			if (strncmp(arr[i].opcode, token_array[0], strlen(token_array[0])) == 0)
 			{
 				if (strncmp(token_array[0], "push", strlen("push")) == 0)
+				{
 					node = push(&node, y, token_array[1]);
+				}
 				else
 					arr[i].f(&node, y);
 				break;
 			}
+		}
+		if (arr[i].opcode == NULL)
+		{
+			fprintf(stderr, "L%i: unknown instruction %s\n", y, token_array[0]);
+			exit(EXIT_FAILURE);
 		}
 		y++;
 	}
