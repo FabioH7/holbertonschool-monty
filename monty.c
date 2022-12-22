@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
 					{
 						fprintf(stderr, "L%i: usage: push integer\n", y);
                 				exit(EXIT_FAILURE);
+						return (1);
 					}
 					node = push(&node, y, token_array[1]);
 					if (node == NULL)
@@ -68,6 +69,7 @@ int main(int argc, char *argv[])
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", y, token_array[0]);
 			exit(EXIT_FAILURE);
+			return (1);
 		}
 		y++;
 	}
