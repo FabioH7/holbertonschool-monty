@@ -1,5 +1,9 @@
 #include "monty.h"
 
+/**
+ * _free - frees a list
+ * @head: list to free
+ */
 void _free(stack_t *head)
 {
 	stack_t *tmp;
@@ -10,4 +14,5 @@ void _free(stack_t *head)
 		head = head->next;
 		free(tmp);
 	}
+	head = NULL;
 }

@@ -1,6 +1,12 @@
 #include "monty.h"
-int is_num(char *n);
 
+/**
+ * push - insert a node at head of list
+ * @stack: where to insert
+ * @line_number: line number error
+ * @n: argument for push
+ * Return: new head
+ */
 stack_t *push(stack_t **stack, unsigned int line_number, char *n)
 {
 	stack_t *new;
@@ -29,6 +35,11 @@ stack_t *push(stack_t **stack, unsigned int line_number, char *n)
 	return (*stack);
 }
 
+/**
+ * is_num - checks if string contains a num
+ * @n: string to check
+ * Return: 0 if num, 1 if else
+ */
 int is_num(char *n)
 {
 	int i = 0;

@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * swap - swap the values of first 2 nodes
+ * @stack: head node list
+ * @line_number: error line_number
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
@@ -16,6 +21,11 @@ void swap(stack_t **stack, unsigned int line_number)
 	node->n = temp;
 }
 
+/**
+ * stack_len - finds node list len
+ * @h: node list to find len
+ * Return: len
+ */
 size_t stack_len(const stack_t *h)
 {
 	size_t count = 0;

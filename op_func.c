@@ -76,12 +76,3 @@ void add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n = sum;
 	pop(stack, line_number);
 }
-/**
- * nope - this does absolutely nothing
- * @stack: nope
- * @line_number: nope
- */
-void nop(stack_t __attribute__((unused)) **stack, unsigned int  __attribute__((unused)) line_number)
-{
-	return;
-}
