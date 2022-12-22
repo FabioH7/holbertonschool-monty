@@ -1,6 +1,7 @@
 #include "monty.h"
-/*
- * pall - function that prints the elements of the linked lists from the head to the end
+/**
+ * pall - function that prints the elements of the
+ * linked lists from the head to the end
  * @stack: parameter refering to the nodes
  * @line_number: unused in this case
  */
@@ -17,7 +18,7 @@ void pall(stack_t **stack, unsigned int  __attribute__((unused)) line_number)
 		ptr = ptr->next;
 	}
 }
-/*
+/**
  * pint - function that prints the head of our stack
  * @stack: parameter refering to the nodes
  * @line_number: line number being read from the monty file
@@ -31,7 +32,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%i\n", (*stack)->n);
 }
-/* pop - function that removes the first node of the stack
+/**
+ * pop - function that removes the first node of the stack
  * @stack: parameter refering to our nodes
  * @line_number: line number being read from the monty file
  */
@@ -41,7 +43,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr,"L%i: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
@@ -54,10 +56,10 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = tmp->next;
 	(*stack)->prev = NULL;
 	free(tmp);
-	return;
 }
-/*
- * add - adds the two top elements of the stack together and update stacks with the new value and removes one of the elements
+/**
+ * add - adds the two top elements of the stack together and update
+ * stacks with the new value and removes one of the elements
  * @stack: parameter refering to nodes
  * @line_number: lline number being read from monty file
  */
@@ -67,14 +69,14 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (stack_len(*stack) < 2)
 	{
-		fprintf(stderr,"L%i: can't add, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
+		fprintf(stderr, "L%i: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	sum = (*stack)->n + (*stack)->next->n;
 	(*stack)->next->n = sum;
 	pop(stack, line_number);
 }
-/*
+/**
  * nope - this does absolutely nothing
  * @stack: nope
  * @line_number: nope
